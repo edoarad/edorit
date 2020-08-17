@@ -1,0 +1,8 @@
+{% extends 'base.pug' %}
+
+{% block title %}— Page 1{% endblock %}
+
+{% block body %}
+p {{ item.text }}
+a(href="{% url 'list' %}") Back to list
+{% endblock %}

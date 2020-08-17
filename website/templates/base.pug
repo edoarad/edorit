@@ -1,0 +1,10 @@
+{% load sass_tags %}
+
+!!! 5
+html
+  head
+    meta(charset="utf8")
+    title Edo's Website{% block title %}{% endblock %}
+    link(rel="stylesheet" href="{% sass_src 'styles.scss' %}")
+  body
+    {% block body %}{% endblock %}
