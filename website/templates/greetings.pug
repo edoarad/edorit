@@ -1,0 +1,11 @@
+{% extends 'base.pug' %}
+
+{% block title %}Greetings {% endblock %}
+
+{% block body %}
+p A notebook to record greetings in. Possible be able to play back. Possibly add background noise in the playback (and not in the record). 
+p A vault to give money, which links to <a href=http://givewell.org>GiveWell</a>. 
+p We can ask people to give an amount they are willing to pay and then give them feedback ("Is that all we are worth to you? Can't you spare a couple extra shekels? Wow! Thanks grandma!"...) Keep it grandma compatible.
+
+a(href="{% url 'hoopa' %}") Hoopa
+{% endblock %}

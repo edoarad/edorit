@@ -1,0 +1,24 @@
+{% extends 'base.pug' %}
+
+{% block title %}Reception {% endblock %}
+
+{% block body %}
+p Receptionist asks to give a name
+form(method=POST)
+  {% csrf_token %}
+  input(type="text" name="text" value="name")
+  button(type="submit") send
+p Choose a table name. The name can be in {Edo's Family, Orit's Family, Arazim, Highschool, Kindergarden, Womb, ...}. 
+| People can also add their own tables. 
+| Then, the table number will be <i>H("Mazaltov",tablename)</i> or something like this.
+p <i>name and table should be saved in the session</i>
+p Ideas:
+ul
+  li Parents or edorit saying hello
+  li ...
+
+| The image of a table and a KASEFET leads to the 
+a(href="{% url 'greetings' %}") Greetings page
+| .
+a(href="{% url 'hoopa' %}")
+{% endblock %}
