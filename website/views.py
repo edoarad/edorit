@@ -8,8 +8,14 @@ def index(request):
     return render(request, 'index.pug')
 
 
-def page1(request):
-    return render(request, 'page1.pug')
+def reception(request):
+    return render(request, 'reception.pug')
+
+def greetings(request):
+    return render(request,'greetings.pug')
+
+def hoopa(request):
+    return render(request,'hoopa.pug')
 
 
 @csrf_exempt
