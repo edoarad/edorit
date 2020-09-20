@@ -23,6 +23,7 @@
 * Decide on language. Can we use both RTL and LTR? 
 * Create an example page. Perhaps reception.
 * Get a domain
+* Redo `scripts/` 
 
 ## Design
 * Prepare framework for common design
