@@ -4,10 +4,12 @@
 
 {% block body %}
 p Receptionist asks to give a name (Current name: {{ request.session.name }})
-form(method="POST")
+form(method="POST" class="form-inline")
   {% csrf_token %}
-  {{ form }}
-  button(type="submit") send
+  {% for field in form %}
+  {{ field }}
+  {% endfor %}
+  button(type="submit" class="btn btn-primary mb-2") Submit
 p Choose a table name. The name can be in {Edo's Family, Orit's Family, Arazim, Highschool, Kindergarden, Womb, ...}. 
 | People can also add their own tables. 
 | Then, the table number will be <i>H("Mazaltov",tablename)</i> or something like this.
