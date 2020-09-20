@@ -3,10 +3,10 @@
 {% block title %}Reception {% endblock %}
 
 {% block body %}
-p Receptionist asks to give a name
-form(method=POST)
+p Receptionist asks to give a name (Current name: {{ request.session.name }})
+form(method="POST")
   {% csrf_token %}
-  input(type="text" name="text" value="name")
+  {{ form }}
   button(type="submit") send
 p Choose a table name. The name can be in {Edo's Family, Orit's Family, Arazim, Highschool, Kindergarden, Womb, ...}. 
 | People can also add their own tables. 

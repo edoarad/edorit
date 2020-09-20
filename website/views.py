@@ -1,15 +1,27 @@
 from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_exempt
+from django.http import HttpResponseRedirect
 
 from . import models
-
+from .forms import ReceptionForm
 
 def index(request):
     return render(request, 'index.pug')
-
-
+    
 def reception(request):
-    return render(request, 'reception.pug')
+    print(f"'{request.method}'")
+    if request.method == 'POST':
+        form = ReceptionForm(request.POST)
+        if form.is_valid():
+            # TODO: process the data in form.cleaned_data as required
+            request.session.update(form.cleaned_data)
+            # TODO: redirect to a new URL:
+            return HttpResponseRedirect('/welcome/')
+        else:
+            # TODO: Indicate error to user, don't redirect probably
+            return HttpResponseRedirect('/error/')
+    
+    return render(request, 'reception.pug', {'form' : ReceptionForm()})
 
 def greetings(request):
     return render(request,'greetings.pug')
