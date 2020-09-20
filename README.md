@@ -7,7 +7,9 @@
 
 # HH logistics
 * Suggest that people will team up in pairs or more.
-* Have a table of tasks, each task may have several people listed. 
+* Have a table of tasks, each task may have several people listed. Storyboard.
+* Send message to Arazim, Harzititiot, EA, other friends.
+* Ask if anyone wants to take more responsibility, .
 
 # Design Decisions
 * Should be available both in PCs and phones.
