@@ -11,6 +11,7 @@
 
 # Design Decisions
 * Should be available both in PCs and phones.
+* All will be in english.
 
 # Conventions and decisions
 * Guests enter for  a single session. They can enter again at a later date, but no user maintenance is needed.
@@ -20,7 +21,6 @@
 * Make sure that the infrastructure we use fits the usages we want.
 * Prepare file/framework for common logic.
 * prepare outside sources that are common throughout several views.
-* Decide on language. Can we use both RTL and LTR? 
 * Create an example page. Perhaps reception.
 * Get a domain
 * Redo `scripts/` 

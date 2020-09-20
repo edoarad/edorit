@@ -1,14 +1,14 @@
-!!! 5
-html
-  head
-    meta(charset="utf8")
-    title EdOrit's Wedding
-  body
-    p Welcome!
-    p A gate to the wedding. 
-    p An explanation of what's going on.
-    ul
-      li
-        a(href="{% url 'reception' %}") Page 1
-      li
-        p Something else
+{% extends 'base.pug' %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+p Welcome!
+p A gate to the wedding. 
+p An explanation of what's going on.
+ul
+  li
+    a(href="{% url 'reception' %}") Page 1
+  li
+    p Something else
+{% endblock %}
