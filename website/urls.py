@@ -21,11 +21,11 @@ urlpatterns = [
     # Patting zone - place where kittens purr
     # Desserts - gallery of Orit's dessert photos.
     # Dance floor - people can take videos of themselves and then the dance floor will be filled with GIFs of people dancing. (Perhaps some moderation would be helpful)
-    # Magnet board - 086477858
+    # Magnet board - contains a bunch of photos of people with blank faces. people can add their faces in via webcam and save the photo.
 
 
-    # Examples
-    path('list/', views.list, name='list'),
-    path('list/new/', views.new_item, name='new-item'),
-    path('list/<int:pk>', views.item, name='item'),
+    # # Examples
+    # path('list/', views.list, name='list'),
+    # path('list/new/', views.new_item, name='new-item'),
+    # path('list/<int:pk>', views.item, name='item'),
 ]
