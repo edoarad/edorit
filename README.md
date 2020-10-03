@@ -1,5 +1,5 @@
 # Set up
-* Working on Webhooks now. again.
+* Working on Webhooks now. again. It works!!! (but with needed authorization?)
 
 
 ## Common problems
