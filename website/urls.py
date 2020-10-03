@@ -13,7 +13,7 @@ urlpatterns = [
     # Footer - Terms & conditions.
     #     Something silly like a marriage agreement.
     # Popup - Do you approve the use of cookies?
-    #     yes button - orit with cookies. No button, Edo with lattice.
+    #     yes button - orit with cookies. No button, Edo with lettuce.
     # Bar - Lots of Corona bottles. Can drink shots - each shot, the screen starts to be more fuzzy and move around for the entire wedding.
     # Talk with people - Rabbi, grandmas, parents, ...
     # Coronavirus attack!! - suddenly, the world turns green. An alert message tells you that there is a virus attack, 
