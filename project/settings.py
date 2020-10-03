@@ -1,8 +1,9 @@
 from pathlib import Path
+import os
 
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
-SECRET_KEY = '*3!*or-n6mg$qaxo*c&(0p=zu$2u1mf#%$vbpfcj7koay!vxi6'
-DEBUG = True
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', '*3!*or-n6mg$qaxo*c&(0p=zu$2u1mf#%$vbpfcj7koay!vxi6')
+DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 ALLOWED_HOSTS = ['*']
 INSTALLED_APPS = [
     'website',
