@@ -1,6 +1,7 @@
 # Set up
 * Working on Webhooks now. again. It works!!! (but with needed authorization?)
 * Testing Discord Webhooks
+* testing master rule
 
 
 ## Common problems
