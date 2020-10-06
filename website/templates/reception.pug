@@ -8,6 +8,11 @@ form(method="POST" class="form-inline")
   {% csrf_token %}
   {% for field in form %}
   {{ field }}
+  {% for error in field.errors %}
+  <div class="alert alert-danger">
+  <strong>{{ error|escape }}</strong>
+  </div>
+  {% endfor %}
   {% endfor %}
   button(type="submit" class="btn btn-primary mb-2") Submit
 p Choose a table name. The name can be in {Edo's Family, Orit's Family, Arazim, Highschool, Kindergarden, Womb, ...}. 

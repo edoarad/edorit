@@ -17,7 +17,7 @@ def reception(request):
             return HttpResponseRedirect('/welcome/')
         else:
             # TODO: Indicate error to user, don't redirect probably
-            return HttpResponseRedirect('/error/')
+            return render(request, 'reception.pug', {'form' : form})
     
     return render(request, 'reception.pug', {'form' : ReceptionForm()})
 
