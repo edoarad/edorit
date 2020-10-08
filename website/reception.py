@@ -6,6 +6,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponseRedirect
 
 from . import models
+from . import urls
 from .forms import ReceptionForm
 
 def reception(request):
@@ -21,10 +22,9 @@ def reception(request):
             return HttpResponseRedirect('/welcome/')
         else:
             print(f"Got invalid form: {form.errors}")
-            # Re-render the page, indicating form errors to user
-            return render(request, 'reception.pug', {'form' : form})
-    
-    return render(request, 'reception.pug', {'form' : ReceptionForm()})
+    else:
+        form = ReceptionForm()
+    return render(request, 'reception.pug', { 'form' : ReceptionForm(), 'footer_info': urls.footer_info(request)})
 
 
 def guest_name_to_filename(guest_name : str) -> str:
