@@ -8,21 +8,25 @@ base_footer_info = []
 
 def add_url(url, handler, name, footer_title):
     urlpatterns.append(path(url, handler, name=name))
-    base_footer_info.append({ "url": url, "title": footer_title })
+    base_footer_info.append({ "url": "/" + url, "title": footer_title })
 
 def footer_info(request):
     active_i = 0
     for i in range(len(base_footer_info)):
-        if '/'+base_footer_info[i]["url"] == request.path:
+        if base_footer_info[i]["url"] == request.path:
             active_i = i
             break
     
-    computed = []
+    next_page = None
+    if i+1 < len(base_footer_info):
+        next_page = base_footer_info[i+1]["url"]
+
+    dots = []
     for i in range(len(base_footer_info)):
         cls_str = "is-active" if i == active_i else ("is-complete" if i < active_i else "")
-        computed.append({ "title": base_footer_info[i]["title"], "cls_str": cls_str })
+        dots.append({ "title": base_footer_info[i]["title"], "cls_str": cls_str })
     
-    return computed
+    return { "dots": dots, "next_page": next_page }
 
 add_url('', views.index, 'index', 'Home'),
 add_url('reception/', reception.reception, 'reception', 'Reception'),

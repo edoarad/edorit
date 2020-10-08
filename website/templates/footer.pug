@@ -1,5 +1,11 @@
 footer
     div(class="container")
         div(class="dots-bar")
-            each info in footer_info
+            each info in footer_info.dots
                 div(class=info["cls_str"]): span= info.title
+        div(class="footer-btns")
+            if footer_info.next_page
+                a(href=footer_info["next_page"] class="btn btn-success btn-lg" tabindex=1) Next
+            else
+                button(class="btn btn-secondary btn-lg") Done
+            button(type="button" class="btn help-btn btn-info btn-lg") Help
