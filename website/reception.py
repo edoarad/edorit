@@ -24,7 +24,7 @@ def reception(request):
             print(f"Got invalid form: {form.errors}")
     else:
         form = ReceptionForm()
-    return render(request, 'reception.pug', { 'form' : ReceptionForm(), 'footer_info': urls.footer_info(request)})
+    return render(request, 'reception.pug', { 'form' : form, 'footer_info': urls.footer_info(request)})
 
 
 def guest_name_to_filename(guest_name : str) -> str:
