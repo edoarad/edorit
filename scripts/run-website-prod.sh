@@ -4,5 +4,5 @@
 set -e
 cd "$(dirname "${BASH_SOURCE[0]}")/.."
 
-
-uwsgi --http :8000 --module project.wsgi
+sudo /etc/init.d/nginx restart
+uwsgi --socket mysite.sock --module project.wsgi --chmod-socket=666
