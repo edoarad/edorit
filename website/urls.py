@@ -3,6 +3,7 @@ from django.urls import path
 from . import views
 from . import reception
 from . import magnets
+from . import table
 from . import greetings
 
 urlpatterns = []
@@ -34,6 +35,7 @@ def footer_info(request):
 add_url('', views.index, 'index', 'Home'),
 add_url('invitation/', views.invitation, 'invitation', 'Invitation'),
 add_url('reception/', reception.reception, 'reception', 'Reception'),
+add_url('table/', table.table, 'table', 'Table'),
 add_url('greetings/', greetings.greetings, 'greetings', 'Greetings'),
 add_url('hoopa/', views.hoopa, 'hoopa', 'Hoopa'),
 add_url('magnets/', magnets.magnets, 'magnets', 'Magnets'),
