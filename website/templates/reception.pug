@@ -3,7 +3,7 @@
 {% block title %}Reception {% endblock %}
 
 {% block body %}
-p Receptionist asks to give a name (Current name: {{ request.session.name }})
+p Receptionist asks to give a name. Current details: name: {{ request.session.name }}, id: {{ request.session.guest_id }}
 form(method="POST" class="form-inline" onsubmit="beforeSubmit()")
   {% csrf_token %}
   {% for field in form.visible_fields %}

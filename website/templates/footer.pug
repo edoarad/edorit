@@ -1,9 +1,23 @@
 footer
     div(class="container")
         div(class="dots-bar")
-            div(class="is-complete"): span Objective &amp; Template
-            div(class="is-active"): span Options
-            div: span Step
-            div: span Step
-            div: span Step
-            div: span Step
+            each info in footer_info.dots
+                div(class=info["cls_str"]): span= info.title
+        div(class="footer-btns")
+            if footer_info.next_page
+                a(href=footer_info["next_page"] class="btn btn-success btn-lg" tabindex=1) Next
+            else
+                button(class="btn btn-secondary btn-lg") Done
+            button(type="button" class="btn help-btn btn-info btn-lg" data-toggle="modal" data-target="#helpModal") עזרה
+
+div(class="modal fade" id="helpModal" tabindex="-1" role="dialog" aria-labelledby="helpModalLabel" aria-hidden="true")
+    div(class="modal-dialog" role="document")
+        div(class="modal-content")
+            div(class="modal-header")
+                h5(class="modal-title" id="helpModalLabel") עזרה
+                button(type="button" class="close" data-dismiss="modal" aria-label="סגור")
+                    span(aria-hidden="true") &times
+            div(class="modal-body")
+                p צריך ליישר את מה שכתוב כאן לימין
+            div(class="modal-footer")
+                button(type="button" class="btn btn-primary" data-dismiss="modal") סגור

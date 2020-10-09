@@ -3,15 +3,13 @@ from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponseRedirect
 
 from . import models
+from . import urls
 
 def index(request):
-    return render(request, 'index.pug')
-
-def greetings(request):
-    return render(request,'greetings.pug')
+    return render(request, 'index.pug', { 'footer_info': urls.footer_info(request) })
 
 def hoopa(request):
-    return render(request,'hoopa.pug')
+    return render(request,'hoopa.pug', { 'footer_info': urls.footer_info(request) })
 
 
 # @csrf_exempt
