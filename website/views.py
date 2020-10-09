@@ -8,6 +8,9 @@ from . import urls
 def index(request):
     return render(request, 'index.pug', { 'footer_info': urls.footer_info(request) })
 
+def bar(request):
+    return render(request,'bar.pug', { 'footer_info': urls.footer_info(request) })
+
 def hoopa(request):
     return render(request,'hoopa.pug', { 'footer_info': urls.footer_info(request) })
 
