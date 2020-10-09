@@ -5,4 +5,4 @@ set -e
 cd "$(dirname "${BASH_SOURCE[0]}")/.."
 
 
-uwsgi --http :80 --module project.wsgi
+uwsgi --http :8000 --module project.wsgi
