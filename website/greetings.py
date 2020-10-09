@@ -16,7 +16,10 @@ def greetings(request):
             print(f"Got invalid form: {form.errors}")
     else:
         form = GreetingsForm()
-    return render(request,'greetings.pug', { 'form': form, 'footer_info': urls.footer_info(request) })
+    
+    greetings = models.Greeting.objects.filter(private__exact=False)
+
+    return render(request,'greetings.pug', { 'form': form, 'greetings': greetings, 'footer_info': urls.footer_info(request) })
 
 def save_new_greeting(form_data, guest_id):
     new_greeting = models.Greeting(

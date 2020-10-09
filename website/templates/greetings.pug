@@ -20,4 +20,12 @@ form(method="POST" onsubmit="beforeSubmit()")
     {% endfor %}
     button(type="submit" class="btn btn-primary mb-2") Submit
 
+div
+    h2 Greetings Book
+
+    {% for greeting in greetings %}
+    h3 By {{ greeting.guest.name }}
+    p {{ greeting.message|linebreaksbr }}
+    {% endfor %}
+
 {% endblock %}
