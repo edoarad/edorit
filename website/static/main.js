@@ -10,7 +10,7 @@ function p(t) {
 // Bar.
 $(function() {
     let $main = $("#main"), main = $main[0];
-
+    let timeout;
     let drinkLevel = 0;
 
     function animationStr(anim, time) {
@@ -18,6 +18,10 @@ $(function() {
     }
 
     function animate() {
+        if (drinkLevel === 0) {
+            return;
+        }
+
         let anim = [];
         let maxTime = 0;
 
@@ -37,9 +41,10 @@ $(function() {
         }
 
         if (p(0.65)) {
-            let time = random(800, 4000 * log);
+            let time = random(800, 3000 * log);
             maxTime = Math.max(maxTime, time);
-            anim.push(animationStr("blur-anim", time));
+            let very = (drinkLevel >= 5) && p(0.6) ? "very-" : "";
+            anim.push(animationStr(very + "blur-anim", time));
         }
 
         $main.css("animation", "");
@@ -48,14 +53,20 @@ $(function() {
 
         let delay = random(2000 / log, 10000 / log);
 
-        setTimeout(animate, delay + maxTime);
+        timeout = setTimeout(animate, delay + maxTime);
     }
 
     $("#drink").click(function() {
         drinkLevel++;
-        console.log("Drink level is now " + drinkLevel);
-        if (drinkLevel === 1) {
-            animate();
-        }
+        console.log("Drinking, now " + drinkLevel);
+        clearTimeout(timeout);
+        animate();
     });
+
+    setInterval(function() {
+        if (drinkLevel > 0) {
+            drinkLevel -= 1;
+            console.log("Gettign sober, now " + drinkLevel);
+        }
+    }, 20000);
 });

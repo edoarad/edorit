@@ -21,19 +21,31 @@ body {
   100% {
     filter: blur(0px); } }
 
+@keyframes very-blur-anim {
+  0% {
+    filter: blur(0px); }
+  50% {
+    filter: blur(4px); }
+  100% {
+    filter: blur(0px); } }
+
 @keyframes rrot-anim {
   0% {
     transform: rotate(0); }
-  50% {
+  35% {
     transform: rotate(15deg); }
+  80% {
+    transform: rotate(-6deg); }
   100% {
     transform: rotate(0); } }
 
 @keyframes lrot-anim {
   0% {
     transform: rotate(0); }
-  50% {
+  35% {
     transform: rotate(-15deg); }
+  80% {
+    transform: rotate(6deg); }
   100% {
     transform: rotate(0); } }
 
