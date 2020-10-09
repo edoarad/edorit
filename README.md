@@ -6,7 +6,7 @@ Write something here.
 
 # Getting Started
 Install python 3 on your computer, and clone this repository.
-Then follow the explenation for your operating system.
+Then follow the explanation for your operating system.
 In the end your web server is running on port 8000, so you should be able to browse it at:
 ```
 http://127.0.0.1:8000/
