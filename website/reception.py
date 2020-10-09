@@ -17,7 +17,9 @@ def reception(request):
             # TODO: process the data in form.cleaned_data as required
             print(f"New guest registered with details: {form.cleaned_data}")
             request.session.update(form.cleaned_data)
-            register_guest_db(form.cleaned_data)
+            guest_id = register_guest_db(form.cleaned_data)
+            request.session['guest_id'] = guest_id
+
             # TODO: redirect to a new URL:
             return HttpResponseRedirect('/welcome/')
         else:
@@ -50,3 +52,4 @@ def register_guest_db(form_data):
     )
     
     new_guest.save()
+    return new_guest.id
