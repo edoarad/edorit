@@ -5,7 +5,6 @@ from . import reception
 from . import magnets
 from . import greetings
 
-
 urlpatterns = []
 base_footer_info = []
 
@@ -33,6 +32,7 @@ def footer_info(request):
     return { "dots": dots, "next_page": next_page }
 
 add_url('', views.index, 'index', 'Home'),
+add_url('invitation/', views.invitation, 'invitation', 'Invitation'),
 add_url('reception/', reception.reception, 'reception', 'Reception'),
 add_url('greetings/', greetings.greetings, 'greetings', 'Greetings'),
 add_url('hoopa/', views.hoopa, 'hoopa', 'Hoopa'),
