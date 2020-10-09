@@ -14,6 +14,9 @@ def greetings(request):
 def hoopa(request):
     return render(request,'hoopa.pug', { 'footer_info': urls.footer_info(request) })
 
+def react_example(request):
+    return render(request, 'react-example.pug', {'footer_info': {'dots': []}})
+
 
 # @csrf_exempt
 # def list(request):

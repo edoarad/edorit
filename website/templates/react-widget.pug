@@ -1,0 +1,5 @@
+script(type='text/babel') var props = {};
+{{ props|safe }}
+script(type='text/babel').
+  ReactDOM.render(React.createElement({{ widget }}, props), document.querySelector('{{ selector }}'));
+  props = {};

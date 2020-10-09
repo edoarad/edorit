@@ -1,0 +1,15 @@
+{% extends 'base.pug' %}
+
+{% load react %}
+
+{% block head %}
+{% react_import 'example.js' %}
+{% endblock %}
+
+{% block body %}
+#example
+{% react 'Example' '#example' %}
+script.
+  var props = {message: 'Hello, world!'}
+{% endreact %}
+{% endblock %}
