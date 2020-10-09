@@ -70,4 +70,7 @@ STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 ]
+
 SASS_PROCESSOR_ROOT = STATIC_ROOT
+MEDIA_ROOT = os.path.join(BASE_DIR,'uploads')
+MEDIA_URL = "/uploads/"
