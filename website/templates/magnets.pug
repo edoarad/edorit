@@ -6,10 +6,16 @@
 {% load static %} 
 // TODO: This should be in base.pug, but then it doesn't work for some reason
 
+div(id="video_box" style="position:relative; display:inline-block;")
+  div(id="video_overlays" style='position:absolute; width:640px; height:480px; z-index:300000; top:0px; left:0px;') 
+    img(id="overlay_img" src="{% get_static_prefix %}img/magnets/1.png" width=640 height=480)
+  div 
+    video(id="cam_video" autoplay="autoplay")
+
+
+
 div
-  img(src="{% get_static_prefix %}img/magnets/circle.png" width=640 height=480)
-  video(autoplay="autoplay" style="border:5px solid #000000")
-  canvas(width="640" id="canvas", height="480" style="border:5px solid #000000")
+  canvas(width="640" id="canvas", height="480")
   button(type="button" onclick="takePhoto()" class="btn btn-primary mb-2") Take photo
 
 script.
@@ -18,26 +24,20 @@ script.
   };
   // TODO: Export this code to external js script
   // Option - use something like https://simpl.info/getusermedia/sources/ to allow user to select device
-  var overlay_image = document.querySelector('img');
-  var video = document.querySelector('video');
+  var overlay_image = document.getElementById('overlay_img');
+  var video = document.getElementById('cam_video');
   var canvas = document.querySelector('canvas');
   var ctx = canvas.getContext('2d');//changed this line to "canvas.getContext('2d')".
 
   // On button click we copy the webcam image to a canvas
   function takePhoto() {
     ctx.drawImage(video, 0, 0, 640, 480);
+    ctx.drawImage(overlay_image, 0, 0, 640, 480);
   }
 
-  // On form submit we copy the canvas to the image field of the form
-  // TODO: Also check a photo was taken
-  function beforeSubmit() {
-    var canvasURL = canvas.toDataURL("image/png");
-    var img = document.getElementById("id_photo");
-    img.value = canvasURL;
-    return true;
-  }
   navigator.mediaDevices.getUserMedia(constraints).
   then((stream) => {video.srcObject = stream});
+  ctx.drawImage(overlay_image, 0, 0, 640, 480);
 
 p Choose a table name. The name can be in {Edo's Family, Orit's Family, Arazim, Highschool, Kindergarden, Womb, ...}. 
 | People can also add their own tables. 
