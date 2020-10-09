@@ -23,8 +23,9 @@ def footer_info(request):
 
     dots = []
     for i in range(len(base_footer_info)):
-        cls_str = "is-active" if i == active_i else ("is-complete" if i < active_i else "")
-        dots.append({ "title": base_footer_info[i]["title"], "cls_str": cls_str })
+        info = base_footer_info[i].copy()
+        info["cls_str"] = "is-active" if i == active_i else ("is-complete" if i < active_i else "")
+        dots.append(info)
     
     return { "dots": dots, "next_page": next_page }
 
