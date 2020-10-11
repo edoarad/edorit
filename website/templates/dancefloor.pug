@@ -1,0 +1,30 @@
+{% extends 'base.pug' %}
+
+{% load react %}
+
+{% block title %}Dancefloor{% endblock %}
+
+{% block head %}
+{% react_import 'dancefloor.js' %}
+{% endblock %}
+
+{% block body %}
+#dancefloor
+{% react 'Dancefloor' '#dancefloor' %}
+script.
+  var props = {
+    dancers: [
+      {% for dancer in dancers %}
+      {% if dancer.ready %}
+      {
+        id: {{ dancer.id }},
+        url: '{{ dancer.video.url }}',
+        offsetTop: {{ dancer.offset_top }},
+        offsetLeft: {{ dancer.offset_left }},
+      },
+      {% endif %}
+      {% endfor %}
+    ],
+  };
+{% endreact %}
+{% endblock %}
