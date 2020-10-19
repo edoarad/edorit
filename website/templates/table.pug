@@ -1,0 +1,18 @@
+{% extends 'base.pug' %}
+
+{% block title %}Table {% endblock %}
+
+{% block body %}
+script.
+  function check_answer(side_guess, guest_side) {
+    if (side_guess == guest_side)
+      alert("Correct!")
+    else 
+      alert("Wrong! You are not invited to our next wedding!")
+  }
+
+p Guest details: name: {{ guest.name }}, img: {{ guest.photo.url }}
+img(src="{{ guest.photo.url }}")
+button(onclick="check_answer('Edo', '{{ guest_side }}')") Edo
+button(onclick="check_answer('Orit', '{{ guest_side }}')") Orit
+{% endblock %}

@@ -16,3 +16,8 @@ class Dancer(models.Model):
     @property
     def ready(self):
         return self.offset_top is not None and self.offset_left is not None
+
+class Greeting(models.Model):
+    guest = models.ForeignKey(Guest, on_delete=models.SET_NULL, null=True)
+    message = models.CharField(max_length=32768)
+    private = models.BooleanField()

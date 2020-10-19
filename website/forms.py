@@ -24,3 +24,7 @@ class ReceptionForm(forms.Form):
                             validators=[validate_name_no_dup])
     table_name = forms.ChoiceField(label='Table Name', widget=forms.RadioSelect, choices=TABLE_CHOICES)
     photo = forms.CharField(widget=forms.HiddenInput) 
+
+class GreetingsForm(forms.Form):
+    message = forms.CharField(label='', max_length=32768, widget=forms.Textarea(attrs={"placeholder": "Message", "class": "form-control mb-2 mr-sm-2"}))
+    private = forms.BooleanField(label='Private', required=False)
