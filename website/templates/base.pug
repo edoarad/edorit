@@ -8,6 +8,11 @@ html
     title EdOrit's Wedding - {% block title %}{% endblock %}
     link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous")
     link(rel="stylesheet" href="{% sass_src 'styles.scss' %}")
+    link(rel="stylesheet" href="{% sass_src 'more-styles.sass' %}")
+    script(src='https://unpkg.com/react@16/umd/react.development.js' crossorigin)
+    script(src='https://unpkg.com/react-dom@16/umd/react-dom.development.js' crossorigin)
+    script(src='https://unpkg.com/babel-standalone@6/babel.min.js')
+    {% block head %}{% endblock %}
   body
     div(id="main")
       {% block body %}{% endblock %}

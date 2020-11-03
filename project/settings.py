@@ -72,5 +72,5 @@ STATICFILES_FINDERS = [
 ]
 
 SASS_PROCESSOR_ROOT = STATIC_ROOT
-MEDIA_ROOT = os.path.join(BASE_DIR,'uploads')
-MEDIA_URL = "/uploads/"
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'

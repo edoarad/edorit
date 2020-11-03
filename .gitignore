@@ -4,4 +4,5 @@ db.sqlite3
 *.pyc
 website/migrations/
 img/guest_photos/*
-uploads/
+/static/
+/media/
