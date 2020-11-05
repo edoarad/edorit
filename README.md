@@ -49,7 +49,7 @@ component, you need to:
 2. In your template, import it using the `{% react_import '<filename>' %}` tag — so in our example,
    `{% react_import 'example.js' %}`.
 
-3. Finally, to render your component unto some element, use the `{% react '<Component>' '<selector>' %}
+3. Finally, to render your component unto some element, use the `{% react '<Component>' '<selector>' %}`
    — in our example, that'd be `{% react 'Example' '#example' %}`, which would load us unto the `<div id="exmaple">`.
 
    This tag actually has to be closed with the `{% endreact %}` tag; between them, you can pass props
