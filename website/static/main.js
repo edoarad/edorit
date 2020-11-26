@@ -7,6 +7,26 @@ function p(t) {
     return Math.random() < t;
 }
 
+// Backgrounds have subtly changing varieties. 
+// This function alternates between them
+// 
+// identifier       - a string for JQuery identification. (say "#background")
+// backgroundArray  - an array of the strings of the urls to the background images. (say, "static/images/bar1.png")
+function alternatingBackground(identifier, backgroundArray) {
+    let timeout = 1 * 1000; // two seconds between each change of background image
+    let i = 0;
+
+    let setBackgroundI = () => {
+        background = $(identifier);
+        i = (i + 1) % backgroundArray.length;
+        background.css("background-image", "url('" + backgroundArray[i] + "')");
+    }
+
+    setInterval(setBackgroundI, timeout);
+}
+
+
+
 // Bar.
 $(function() {
     let $main = $("#main"), main = $main[0];

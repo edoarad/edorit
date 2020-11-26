@@ -3,9 +3,16 @@
 {% block title %}Bar {% endblock %}
 
 {% block body %}
-h2 Test title
-p Test content
+div(class="bar") 
+    h2 Test title
+    p Test content
 
-button(id="drink", class="btn btn-primary") Drink
+    button(id="drink", class="btn btn-primary") Drink
 
+{% endblock %}
+
+{% block script%}
+script.
+    let backgrounds = ([...Array(6).keys()] ).map(i => "/static/images/bar" + (i+1) + ".png");
+    alternatingBackground(".bar", backgrounds);
 {% endblock %}
