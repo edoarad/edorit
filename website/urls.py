@@ -39,13 +39,13 @@ def footer_info(request):
     return { "dots": dots, "next_page": next_page }
 
 
-add_url('', views.index, 'index', 'Home'),
-add_url('invitation/', views.invitation, 'invitation', 'Invitation'),
-add_url('reception/', reception.reception, 'reception', 'Reception'),
-add_url('table/', table.table, 'table', 'Table'),
-add_url('greetings/', greetings.greetings, 'greetings', 'Greetings'),
-add_url('hoopa/', views.hoopa, 'hoopa', 'Hoopa'),
-add_url('dancefloor/', views.dancefloor, 'dancefloor', 'Dancefloor'),
+add_url('', views.index, 'index', 'Home')
+add_url('invitation/', views.invitation, 'invitation', 'Invitation')
+add_url('reception/', reception.reception, 'reception', 'Reception')
+add_url('table/', table.table, 'table', 'Table')
+add_url('greetings/', greetings.greetings, 'greetings', 'Greetings')
+add_url('hoopa/', views.hoopa, 'hoopa', 'Hoopa')
+add_url('dancefloor/', views.dancefloor, 'dancefloor', 'Dancefloor')
 
 
 add_url('react-example/', views.react_example, 'react-example')
@@ -54,5 +54,5 @@ add_url('api/dancefloor/position-dancer', views.position_dancer, 'position-dance
 
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-add_url('magnets/', magnets.magnets, 'magnets', 'Magnets'),
-add_url('bar/', views.bar, 'bar', 'Bar'),
+add_url('magnets/', magnets.magnets, 'magnets', 'Magnets')
+add_url('bar/', views.bar, 'bar', 'Bar')

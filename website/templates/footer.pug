@@ -1,7 +1,9 @@
 footer
     div(class="container")
+        //- footer_info is defined in urls.py
         div(class="dots-bar")
             each info in footer_info.dots
+                //- "is-complete" .. "is-complete" "is-active" "" .. "" => the dot for the current page is "is-active"
                 div(class=info["cls_str"]): span= info.title
         div(class="footer-btns")
             if footer_info.next_page
