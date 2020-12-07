@@ -7,7 +7,7 @@ DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 ALLOWED_HOSTS = ['*']
 INSTALLED_APPS = [
     'website',
-    'sass_processor',  # https://github.com/jrief/django-sass-processor/blob/master/README.md
+    'sass_processor',  # https://github.com/jrief/django-sass-processor/blob/master/README.md - This uses LibSass which is currently deprecated. TODO: Consider changing to Dart Sass.
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

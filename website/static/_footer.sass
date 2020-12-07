@@ -1,4 +1,5 @@
 // TODO: make sure that the page content isn't hidden behind the footer. It's good for some of the image to be partially hidden, but no buttons and text and stuff.
+
 $footer-btns-width: 170px
 footer 
   position: fixed
@@ -16,12 +17,9 @@ footer
     .btn 
       width: 80px
     
-
     .help-btn 
       float: right
     
-  
-
   .dots-bar 
     display: flex
     justify-content: space-between
@@ -31,7 +29,7 @@ footer
     width: calc(100% - #{$footer-btns-width} - 15px)
     float: left
 
-    div 
+    a  // TODO: this is a bit hacky. Consider cleaning this up
       flex: 2
       position: relative
       padding: 0 0 14px 0
@@ -43,7 +41,8 @@ footer
       overflow: visible
       min-width: 0
       text-align: center
-      border-bottom: 2px solid $color-gray-disabled
+      border-bottom: 2px solid $color-gray-disabled // This is the line connecting the dots
+      $this-bullet: & 
       
       &:first-child,
       &:last-child 
@@ -55,13 +54,13 @@ footer
       &:last-child 
         text-align: right
       
-      &::before 
+      &::before  // bullets
         content: ""
         display: block
         width: 8px
         height: 8px
         background-color: $color-gray-disabled
-        border-radius: 50%
+        border-radius: 50% // This makes it into a circle
         border: 2px solid $color-white
         position: absolute
         left: calc(50% - 6px)
@@ -70,22 +69,15 @@ footer
         transition: all .2s ease-in-out
         box-sizing: content-box
       
-      &:first-child:before 
+      &:first-child::before 
         left: 0
       
-      &:last-child:before 
+      &:last-child::before 
         right: 0
-        left: auto
+        left: auto  
       
-      span  // For page name text
-        transition: opacity .3s ease-in-out
-      
-      &:not(.is-active) span 
-        opacity: 0
-      
-      
-      .is-complete:not(:first-child):after,
-      .is-active:not(:first-child):after 
+      &.is-complete:not(:first-child)::after,
+      &.is-active:not(:first-child)::after 
         content: ""
         display: block
         width: 100%
@@ -94,39 +86,34 @@ footer
         left: -50%
         z-index: 2
         border-bottom: 2px solid $color-green
-       
+      
+      &.is-complete:last-child::after,
+      &.is-active:last-child::after 
+        width: 200%
+        left: -100%
+    
+      &.is-complete::before 
+        background-color: $color-green
+      
+      &.is-active::before,
+      &:hover::before
+        background-color: $color-white
+        border-color: $color-green
+      
+      &:hover::before
+        transform: scale(1.33)
+
+      span  // For page name text
+        transition: opacity .3s ease-in-out
+      
+        @at-root footer .dots-bar a:not(.is-active) span
+          opacity: 0
+
       &:last-child span 
         width: 200%
         display: inline-block
         position: absolute
         left: -100%
     
-
-    .is-complete:last-child:after,
-    .is-active:last-child:after 
-      width: 200%
-      left: -100%
-    
-
-    .is-complete:before 
-      background-color: $color-green
-    
-
-    .is-active:before,
-    div:hover:before,
-    .is-hovered:before 
-      background-color: $color-white
-      border-color: $color-green
-    
-    div:hover:before,
-    .is-hovered:before 
-      transform: scale(1.33)
-    
-
-    div:hover span,
-    div.is-hovered span 
-      opacity: 1
-    
-
-    .dots-bar:hover li:not(:hover) span 
-      opacity: 0
+      &:hover span
+        opacity: 1
