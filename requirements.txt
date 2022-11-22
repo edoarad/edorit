@@ -10,5 +10,5 @@ pytz==2020.1
 rjsmin==1.1.0
 six==1.15.0
 sqlparse==0.3.1
-Pillow==7.2.0
+Pillow==9.3.0
 uwsgi
